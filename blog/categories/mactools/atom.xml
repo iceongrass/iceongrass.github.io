@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MacTools | Ice Write Blog]]></title>
+  <link href="http://iceongrass.github.io/blog/categories/mactools/atom.xml" rel="self"/>
+  <link href="http://iceongrass.github.io/"/>
+  <updated>2014-03-15T22:41:42+08:00</updated>
+  <id>http://iceongrass.github.io/</id>
+  <author>
+    <name><![CDATA[iceongrass]]></name>
+    <email><![CDATA[iceongrass@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[brew cask，Mac党的福音]]></title>
+    <link href="http://iceongrass.github.io/blog/2014/01/20/usingbrewcask/"/>
+    <updated>2014-01-20T23:00:00+08:00</updated>
+    <id>http://iceongrass.github.io/blog/2014/01/20/usingbrewcask</id>
+    <content type="html"><![CDATA[<p>在用惯了ubuntu上的app-get来搞软件的便捷之后，就连Windows也有了360和QQ管家之类能帮助一键安装软件的工具。在被app-store的繁琐和不给力搞到七荤八素之后，我一直都想找一个Mac上类似的工具，可诸如easy_install， pip， curl都不尽如人意。</p>
+
+<p>终于，Mac党的福音来了！这就是brew cask（当当~当当当~~）</p>
+
+<p>安装巨简单，两条命令搞定（前提是你已经安装了Xcode，当然你要是没装，那就忽略了这篇文章吧，下面的内容真不适合您）：</p>
+
+<p><code>bash
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)
+brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask
+</code></p>
+
+<!--more-->
+
+
+<p>用法更是高大上到不需要动任何脑子：
+<code>bash
+brew cask install qq    # 安
+brew cask uninstall qq  # 卸
+brew cask info qq       # 帮
+brew cask search        # 查（看看都有啥可以装的，支持的软件还是蛮多的）
+brew cask search qq     # 查与qq相关的软件
+brew update &amp;&amp; brew upgrade # 更新所有应用程序
+</code></p>
+
+<p>需要注意的是，与app-store不同，通过brew cask安装的程序并没有放在<code>/Applications</code>下，而是放在<code>/opt/homebrew-cask/Caskroom/</code>，只是会在Launchpad放入快捷方式而已。</p>
+
+<p>此外，brew cask上软件的更新速度会比app-store的快一些。对于一些付费的软件，brew cask默认会安装适用版。</p>
+
+<p>如此简单我也就不过多啰嗦! Enjoy yourself, please~</p>
+]]></content>
+  </entry>
+  
+</feed>

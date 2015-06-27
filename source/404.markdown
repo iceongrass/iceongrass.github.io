@@ -1,0 +1,25 @@
+---
+layout: page
+title: Whoops I couldn't find that page
+footer: true
+---
+#哦？出错啦！
+
+**不好意思哈，要么是我懒的还没写粗乃，要么是我粗心的把链接搞错鸟！**  
+<br>
+**如果你看到了这个页面，那麻烦你留个言告诉我一声你是咋跑到这里来的哈！** 
+<br> 
+**提前写过！^_^**
+<br>
+
+You may want to try a search above, or [visit the homepage](/).
+
+Also, here are some recent posts:
+
+<div id="blog-archives" class="missing">
+  {% for post in site.posts limit: 10 %}
+  <article>
+    {% include archive_post.html %}
+  </article>
+  {% endfor %}
+</div>
