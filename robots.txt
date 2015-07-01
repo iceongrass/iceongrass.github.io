@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://iceongrass.github.io/sitemap.xml 
