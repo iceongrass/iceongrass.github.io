@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>面试题一道：三天打渔两天晒网 - Ice Write Blog</title>
+  <meta name="author" content="iceongrass">
+
+  
+  <meta name="description" content="一道面试题而已，没有找到问题在哪里。。。">
+  <meta name="keywords" content="tech, C">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://iceongrass.github.io/blog/2013/11/11/a-interview-test">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ice Write Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'iceongrass']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="iceongrass@gmail.com" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:iceongrass.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">面试题一道：三天打渔两天晒网</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-11T15:03:00+08:00" pubdate data-updated="true">Nov 11<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>某天去某公司面试，被要求写一个程序。程序要求如下：</p>
+
+<p>某渔民张三，从2010年初开始打渔。该渔夫连续打三天渔后，要用两天时间晒网。要求写一段程序，判断某一日期当天张三是否要去打渔:</p>
+
+<pre><code>1. 打渔的话返回1，不打渔返回0；
+2. 要有异常处理。
+</code></pre>
+
+<!--more-->
+
+
+<p>俺给出的答案如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/***************************************************************</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* fishDay.c</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">****************************************************************</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* Description:</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* There is a fishman who stated fishing job from 2010.01.01. </span>
+</span><span class='line'><span class="cm">* He fishes every three days will have a two days rest to clear</span>
+</span><span class='line'><span class="cm">* the net.</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* This program can tell you if the man is fishing on the day </span>
+</span><span class='line'><span class="cm">* you give.</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">***************************************************************/</span>
+</span><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;assert.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#define START_YEAR 2010</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#ifndef END_YEAR</span>
+</span><span class='line'><span class="cp">#define END_YEAR 9999</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Count day number from the beginning of the start year to the </span>
+</span><span class='line'><span class="cm">    giving day */</span>
+</span><span class='line'><span class="kt">int</span> <span class="nf">countDays</span><span class="p">(</span><span class="kt">int</span> <span class="n">nYear</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nMonth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nDay</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">monthDays</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="mi">0</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">120</span><span class="p">,</span> <span class="mi">151</span><span class="p">,</span> <span class="mi">181</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">243</span><span class="p">,</span> <span class="mi">273</span><span class="p">,</span> <span class="mi">304</span><span class="p">,</span> <span class="mi">334</span>
+</span><span class='line'>        <span class="p">};</span>      <span class="cm">/* Count how many days past in this year befor </span>
+</span><span class='line'><span class="cm">                    the giving month */</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>        <span class="mi">365</span><span class="o">*</span><span class="p">(</span><span class="n">nYear</span><span class="o">-</span><span class="n">START_YEAR</span><span class="p">)</span>
+</span><span class='line'>        <span class="o">+</span> <span class="n">monthDays</span><span class="p">[</span><span class="n">nMonth</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span class='line'>        <span class="o">+</span> <span class="n">nDay</span>
+</span><span class='line'>        <span class="o">+</span> <span class="p">(</span><span class="n">runDays</span><span class="p">(</span><span class="n">nYear</span><span class="p">)</span> <span class="o">-</span> <span class="n">runDays</span><span class="p">(</span><span class="n">START_YEAR</span><span class="p">))</span>
+</span><span class='line'>        <span class="o">-</span> <span class="mi">1</span>     <span class="cm">/* Remove the Jan 1st ,2010 */</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Count how many run year past from year 0 */</span>
+</span><span class='line'><span class="kt">int</span> <span class="nf">runDays</span><span class="p">(</span><span class="kt">int</span> <span class="n">nYear</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span> <span class="n">nYear</span><span class="o">/</span><span class="mi">4</span> <span class="o">-</span> <span class="n">nYear</span><span class="o">/</span><span class="mi">100</span> <span class="o">+</span> <span class="n">nYear</span><span class="o">/</span><span class="mi">400</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">fishDay</span><span class="p">(</span><span class="kt">int</span> <span class="n">nYear</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nMonth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nDay</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">days</span><span class="p">;</span>   <span class="cm">/* Count how many days are there from the beginning</span>
+</span><span class='line'><span class="cm">                    of the start year to the giving day */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">daysInMonth</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span>
+</span><span class='line'>        <span class="p">};</span>      <span class="cm">/* Day number in every month */</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Check the input nYear, nMonth and nDay */</span>
+</span><span class='line'>    <span class="n">assert</span><span class="p">((</span><span class="n">START_YEAR</span> <span class="o">&lt;=</span> <span class="n">nYear</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">END_YEAR</span> <span class="o">&gt;=</span> <span class="n">nYear</span><span class="p">));</span>
+</span><span class='line'>    <span class="n">assert</span><span class="p">((</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">nMonth</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">12</span> <span class="o">&gt;=</span> <span class="n">nMonth</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="n">nMonth</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">((</span><span class="mi">0</span> <span class="o">==</span> <span class="n">nYear</span><span class="o">%</span><span class="mi">400</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">||</span> <span class="p">((</span><span class="mi">0</span> <span class="o">==</span> <span class="n">nYear</span><span class="o">%</span><span class="mi">4</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">0</span> <span class="o">!=</span> <span class="n">nYear</span><span class="o">%</span><span class="mi">100</span><span class="p">)))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">assert</span><span class="p">((</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">nDay</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">daysInMonth</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">nDay</span><span class="p">));</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span>
+</span><span class='line'>        <span class="n">assert</span><span class="p">((</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">nDay</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">daysInMonth</span><span class="p">[</span><span class="n">nMonth</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">nDay</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Check if the day is a fishing day */</span>
+</span><span class='line'>    <span class="n">days</span> <span class="o">=</span> <span class="n">countDays</span><span class="p">(</span><span class="n">nYear</span><span class="p">,</span> <span class="n">nMonth</span><span class="p">,</span> <span class="n">nDay</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span><span class="p">((</span><span class="n">days</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>   <span class="cm">/* It&#39;s a fishing day */</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>   <span class="cm">/* It&#39;s a break day */</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Test case</span>
+</span><span class='line'><span class="cm">int main() {</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">    if (fishDay(2010,1,0))</span>
+</span><span class='line'><span class="cm">        printf(&quot;2010,1,0 is a fishing day.\n&quot;);</span>
+</span><span class='line'><span class="cm">    else</span>
+</span><span class='line'><span class="cm">        printf(&quot;2012,1,0 is not a fishing day.\n&quot;);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">    if (fishDay(2010,1,5))</span>
+</span><span class='line'><span class="cm">        printf(&quot;2010,1,5 is a fishing day.\n&quot;);</span>
+</span><span class='line'><span class="cm">    else</span>
+</span><span class='line'><span class="cm">        printf(&quot;2012,1,5 is not a fishing day.\n&quot;);</span>
+</span><span class='line'><span class="cm">    </span>
+</span><span class='line'><span class="cm">    if (fishDay(2012,1,6))</span>
+</span><span class='line'><span class="cm">        printf(&quot;2012,1,6 is a fishing day.\n&quot;);</span>
+</span><span class='line'><span class="cm">    else</span>
+</span><span class='line'><span class="cm">        printf(&quot;2012,1,6 is not a fishing day.\n&quot;);</span>
+</span><span class='line'><span class="cm">    </span>
+</span><span class='line'><span class="cm">    if (fishDay(2013,1,5))</span>
+</span><span class='line'><span class="cm">        printf(&quot;2013,1,5 is a fishing day.\n&quot;);</span>
+</span><span class='line'><span class="cm">    else</span>
+</span><span class='line'><span class="cm">        printf(&quot;2013,1,5 is not a fishing day.\n&quot;);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">    return 0;</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>后来结果是由于俺的简历不过关，面试官觉得后面的面试我再往后走就走不下去了，所以杯具了……我总觉得这个理由只不过是个借口，估计问题还是出在这段代码本身。</p>
+
+<p>做了几年的QA，代码水平有所退步这个我是承认的。可是我还是没怎么能看出这段代码出什么大问题了。麻烦大家给挑挑刺呗。^_^</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">iceongrass</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-11T15:03:00+08:00" pubdate data-updated="true">Nov 11<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+  
+     <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_douban"></a>
+<a class="jiathis_button_renren"></a>
+<a class="jiathis_button_qzone"></a>
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+    summary:"",
+    ralateuid:{
+        "tsina":"iceongrass"
+    },
+    shortUrl:false,
+    hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/11/11/scalahen-shen-qi/" title="Previous Post: Scala很神奇">&laquo; Scala很神奇</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/11/23/scalastudynote1/" title="Next Post: Scala 学习笔记（1）">Scala 学习笔记（1） &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section> 
+  <h1>Category List</h1> 
+  <ul id="categories"> 
+	<li class='category'><a href='/blog/categories/mactools/'>MacTools (1)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/scala/'>Scala (3)</a></li>
+<li class='category'><a href='/blog/categories/ux/'>UX (7)</a></li>
+<li class='category'><a href='/blog/categories/翻译/'>翻译 (7)</a></li>
+ 
+  </ul> 
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/12/daily-ux-crash-course-6-of-31/">【转译】每日UX速成课-6 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/09/daily-ux-crash-course-5-of-31-chs/">【转译】每日UX速成课-5 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/daily-ux-crash-course-4-of-31-chs/">【转译】每日UX速成课-4 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/11/daily-ux-crash-course-3-of-31-chs/">【转译】每日UX速成课-3 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/10/daily-ux-crash-course-2-of-31-chs/">【转译】每日UX速成课-2 of 31</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/iceongrass">@iceongrass</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'iceongrass',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>新浪微博</h1>
+  <ul id="weibo">
+    <li>
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1437555551&verifier=5225192f&dpc=1"></iframe>
+      <!--iframe 
+        width="100%" 
+        height="550" 
+        class="share_self" 
+        frameborder="0" 
+        scrolling="no" 
+        src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=&ptype=0&speed=0&skin=&isTitle=0&noborder=1&isWeibo=0&isFans=1&uid=1437555551&verifier=5225192f">
+      </iframe-->
+    </li>
+  </ul>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/iceongrass?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - iceongrass -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'iceongrass';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://iceongrass.github.io/blog/2013/11/11/a-interview-test/';
+        var disqus_url = 'http://iceongrass.github.io/blog/2013/11/11/a-interview-test/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

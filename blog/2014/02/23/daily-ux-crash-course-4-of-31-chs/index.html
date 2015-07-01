@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>【转译】每日UX速成课-4 of 31 - Ice Write Blog</title>
+  <meta name="author" content="iceongrass">
+
+  
+  <meta name="description" content="啊哈，用户！UX太阳系中的太阳，对咱们来说却是荆棘。永远不要责怪用户，这是UX界的一条神圣法则，即使——让我们多少坦诚些——有时候这种欲望真TND难以抑制。尽管如此，当你有了这样的感觉的时候恰恰说明你并没有理解你的用户，所以今天我们将要学习： 什么是用户调研 （如果您一不小心错过了第一课， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://iceongrass.github.io/blog/2014/02/23/daily-ux-crash-course-4-of-31-chs">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ice Write Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'iceongrass']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="iceongrass@gmail.com" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:iceongrass.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">【转译】每日UX速成课-4 of 31</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-23T20:35:00+08:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2014</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote><p>啊哈，用户！UX太阳系中的太阳，对咱们来说却是荆棘。<strong>永远不要责怪用户</strong>，这是UX界的一条神圣法则，即使——让我们多少坦诚些——有时候这种欲望真TND难以抑制。尽管如此，当你有了这样的感觉的时候恰恰说明你并没有理解你的用户，所以今天我们将要学习：</p></blockquote>
+
+<h2>什么是用户调研</h2>
+
+<hr />
+
+<p>（如果您一不小心错过了第一课，您也许会更希望<a href="/blog/2014/02/09/daily-ux-crash-course-1-of-31-chr/">从头开始</a>）</p>
+
+<p>不同的人们会说用户调研在进展过程中是处于不同平面的。有些人说应该调研先，另一些人有说应该先画些草图然后再开始，还有些人说应该先搞个原型机出来再做这个。</p>
+
+<p><strong>有些人、另一些人和还有些人，他们都是对的。</strong>用户调研这件事再任何时候都不回不合时宜。应该尽早做，经常做。</p>
+
+<p><strong>问题的关键不是什么时候做，而是怎么做。</strong>也可以说成，我们究竟想要从用户身上学到什么。</p>
+
+<p>通过对人们的研究，你通常能够得到两大类的信息：主观的和客观的。</p>
+
+<!--more-->
+
+
+<hr />
+
+<h3><strong>主观调研</strong></h3>
+
+<p><code>主观</code>这个词的意思是指一个意见、一段记忆，或者是你印象中的一些事情，你能够从中获得体会。它会创造一些下意识的期望，但不是事实。</p>
+
+<blockquote><p>“您最喜欢什么颜色啊？”<br/>
+“您信任这家公司吗？”<br/>
+“穿这样的裤子会显得我的屁股很大吗？”</p></blockquote>
+
+<p>也就是说——其实没有正确的答案。</p>
+
+<p>要获得主观方面的信息，你将不得不向人们提问题。</p>
+
+<hr />
+
+<h3><strong>客观调研</strong></h3>
+
+<p><code>客观</code>这个词意味着这是一个实际，一些真实的东西，一些你能够证实的。你的想法和意志不会改变它，无论你想的多么多么努力。</p>
+
+<blockquote><p>“您用我们的app有多久啦？”<br/>
+“您是从哪里看到我们网站的链接的？”<br/>
+“有多少人今天访问过我们的网站？”</p></blockquote>
+
+<p>如果人们有完美的记忆力且从来不说谎（尤其是对他们自己）的话，我们就可以问他们这些问题。如果你真的遇到了这么一个人，麻烦也告知我一下。</p>
+
+<p>客观的数据来自一些检测和统计数据的表单。但你如果只是单单可以掰着指头数清一些数字，这可不一定就是客观的。</p>
+
+<p><em>打个比方：</em>如果102个人说一个东西是好的，而另外有50个人说它是不好的。你所能从中获得的仅有的<em>客观</em>信息是人们的计票数，至于到底是“好”还是“不好”，这仍然是个主观的判断。</p>
+
+<h3><strong>能跟的上不？</strong></h3>
+
+<p>（如果不行，我只能说是我解释的太差，而不是你们读的不好。）</p>
+
+<hr />
+
+<h3><strong>样本规模</strong></h3>
+
+<p>作为一条一般真理，说的人越多的消息越可靠，即便是主观的。一条意见可以是完全错误的，但是一百万人都同意的话，这就成为了大众意志的体现（但也有可能是错的，从客观层面上）。所以还是为你的调研收集尽可能多的信息吧。</p>
+
+<hr />
+
+<h3><strong>大量的主观信息能够&hellip;几乎成为客观？！</strong></h3>
+
+<p>当你让许多人来<em>猜</em>一些客观事物的结果——比方说一根豆角里有几个豌豆——人们猜测结果的<em>平均</em>值通常非常接近真实的、客观的答案。</p>
+
+<p>但是“群众智慧”在对待一些主观事物时也同样可以引起骚乱和让乔治 W·布什当选，所以……好吧，还是悠着点比较好。</p>
+
+<hr />
+
+<p>下一讲我们聊聊<a href="http://thehipperelement.com/post/72332896118/daily-ux-crash-course-5-of-31">向人们提问的几个方法</a>（这样你就不至于搞砸你们的调研）。。。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">iceongrass</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-23T20:35:00+08:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ux/'>UX</a>, <a class='category' href='/blog/categories/fan-yi/'>翻译</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+  
+     <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_douban"></a>
+<a class="jiathis_button_renren"></a>
+<a class="jiathis_button_qzone"></a>
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+    summary:"",
+    ralateuid:{
+        "tsina":"iceongrass"
+    },
+    shortUrl:false,
+    hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/11/daily-ux-crash-course-3-of-31-chs/" title="Previous Post: 【转译】每日UX速成课-3 of 31">&laquo; 【转译】每日UX速成课-3 of 31</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/09/daily-ux-crash-course-5-of-31-chs/" title="Next Post: 【转译】每日UX速成课-5 of 31">【转译】每日UX速成课-5 of 31 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section> 
+  <h1>Category List</h1> 
+  <ul id="categories"> 
+	<li class='category'><a href='/blog/categories/mactools/'>MacTools (1)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/scala/'>Scala (3)</a></li>
+<li class='category'><a href='/blog/categories/ux/'>UX (7)</a></li>
+<li class='category'><a href='/blog/categories/翻译/'>翻译 (7)</a></li>
+ 
+  </ul> 
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/12/daily-ux-crash-course-6-of-31/">【转译】每日UX速成课-6 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/09/daily-ux-crash-course-5-of-31-chs/">【转译】每日UX速成课-5 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/daily-ux-crash-course-4-of-31-chs/">【转译】每日UX速成课-4 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/11/daily-ux-crash-course-3-of-31-chs/">【转译】每日UX速成课-3 of 31</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/10/daily-ux-crash-course-2-of-31-chs/">【转译】每日UX速成课-2 of 31</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/iceongrass">@iceongrass</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'iceongrass',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>新浪微博</h1>
+  <ul id="weibo">
+    <li>
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1437555551&verifier=5225192f&dpc=1"></iframe>
+      <!--iframe 
+        width="100%" 
+        height="550" 
+        class="share_self" 
+        frameborder="0" 
+        scrolling="no" 
+        src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=&ptype=0&speed=0&skin=&isTitle=0&noborder=1&isWeibo=0&isFans=1&uid=1437555551&verifier=5225192f">
+      </iframe-->
+    </li>
+  </ul>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/iceongrass?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - iceongrass -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'iceongrass';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://iceongrass.github.io/blog/2014/02/23/daily-ux-crash-course-4-of-31-chs/';
+        var disqus_url = 'http://iceongrass.github.io/blog/2014/02/23/daily-ux-crash-course-4-of-31-chs/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

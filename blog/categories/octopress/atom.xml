@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Ice Write Blog]]></title>
+  <link href="http://iceongrass.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://iceongrass.github.io/"/>
+  <updated>2014-03-15T22:41:42+08:00</updated>
+  <id>http://iceongrass.github.io/</id>
+  <author>
+    <name><![CDATA[iceongrass]]></name>
+    <email><![CDATA[iceongrass@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[面试题一道：三天打渔两天晒网]]></title>
+    <link href="http://iceongrass.github.io/blog/2013/11/11/a-interview-test/"/>
+    <updated>2013-11-11T15:03:00+08:00</updated>
+    <id>http://iceongrass.github.io/blog/2013/11/11/a-interview-test</id>
+    <content type="html"><![CDATA[<p>某天去某公司面试，被要求写一个程序。程序要求如下：</p>
+
+<p>某渔民张三，从2010年初开始打渔。该渔夫连续打三天渔后，要用两天时间晒网。要求写一段程序，判断某一日期当天张三是否要去打渔:</p>
+
+<pre><code>1. 打渔的话返回1，不打渔返回0；
+2. 要有异常处理。
+</code></pre>
+
+<!--more-->
+
+
+<p>俺给出的答案如下：</p>
+
+<p>```c
+/***************************************************************
+*
+* fishDay.c
+*</p>
+
+<hr />
+
+<p>*
+* Description:
+*
+* There is a fishman who stated fishing job from 2010.01.01.
+* He fishes every three days will have a two days rest to clear
+* the net.
+*
+* This program can tell you if the man is fishing on the day
+* you give.
+*
+***************************************************************/</p>
+
+<h1>include &lt;stdio.h></h1>
+
+<h1>include &lt;stdlib.h></h1>
+
+<h1>include &lt;assert.h></h1>
+
+<h1>define START_YEAR 2010</h1>
+
+<h1>ifndef END_YEAR</h1>
+
+<h1>define END_YEAR 9999</h1>
+
+<h1>endif</h1>
+
+<p>/* Count day number from the beginning of the start year to the</p>
+
+<pre><code>giving day */
+</code></pre>
+
+<p>int countDays(int nYear, int nMonth, int nDay) {</p>
+
+<pre><code>int monthDays [12] = {
+    0, 31, 59, 90,
+    120, 151, 181, 212,
+    243, 273, 304, 334
+    };      /* Count how many days past in this year befor 
+                the giving month */
+
+return (
+    365*(nYear-START_YEAR) 
+    + monthDays[nMonth-1] 
+    + nDay
+    + (runDays(nYear) - runDays(START_YEAR)) 
+    - 1     /* Remove the Jan 1st ,2010 */
+    );
+</code></pre>
+
+<p>}</p>
+
+<p>/<em> Count how many run year past from year 0 </em>/
+int runDays(int nYear) {</p>
+
+<pre><code>return ( nYear/4 - nYear/100 + nYear/400) ; 
+</code></pre>
+
+<p>}</p>
+
+<p>unsigned int fishDay(int nYear, int nMonth, int nDay) {</p>
+
+<pre><code>int days;   /* Count how many days are there from the beginning
+                of the start year to the giving day */
+int daysInMonth[12] = {
+    29, 31, 28, 31, 30,
+    31, 30, 31, 31,
+    30, 31, 30, 31
+    };      /* Day number in every month */
+
+/* Check the input nYear, nMonth and nDay */
+assert((START_YEAR &lt;= nYear) &amp;&amp; (END_YEAR &gt;= nYear));
+assert((1 &lt;= nMonth) &amp;&amp; (12 &gt;= nMonth));
+
+if (2 == nMonth) {
+    if ((0 == nYear%400) 
+        || ((0 == nYear%4) &amp;&amp; (0 != nYear%100))) {
+        assert((1 &lt;= nDay) &amp;&amp; (daysInMonth[0] &gt;= nDay));
+    }
+} else 
+    assert((1 &lt;= nDay) &amp;&amp; (daysInMonth[nMonth] &gt;= nDay));
+
+/* Check if the day is a fishing day */
+days = countDays(nYear, nMonth, nDay);
+
+if((days % 5) &lt;= 2)
+    return 1;   /* It's a fishing day */
+else
+    return 0;   /* It's a break day */
+</code></pre>
+
+<p>}</p>
+
+<p>/* Test case
+int main() {</p>
+
+<pre><code>if (fishDay(2010,1,0))
+    printf("2010,1,0 is a fishing day.\n");
+else
+    printf("2012,1,0 is not a fishing day.\n");
+
+if (fishDay(2010,1,5))
+    printf("2010,1,5 is a fishing day.\n");
+else
+    printf("2012,1,5 is not a fishing day.\n");
+
+if (fishDay(2012,1,6))
+    printf("2012,1,6 is a fishing day.\n");
+else
+    printf("2012,1,6 is not a fishing day.\n");
+
+if (fishDay(2013,1,5))
+    printf("2013,1,5 is a fishing day.\n");
+else
+    printf("2013,1,5 is not a fishing day.\n");
+
+return 0;
+</code></pre>
+
+<p>}
+*/
+```
+后来结果是由于俺的简历不过关，面试官觉得后面的面试我再往后走就走不下去了，所以杯具了……我总觉得这个理由只不过是个借口，估计问题还是出在这段代码本身。</p>
+
+<p>做了几年的QA，代码水平有所退步这个我是承认的。可是我还是没怎么能看出这段代码出什么大问题了。麻烦大家给挑挑刺呗。^_^</p>
+]]></content>
+  </entry>
+  
+</feed>
